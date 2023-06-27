@@ -60,7 +60,7 @@ const Comment = ({title, review, date, comment, attachments}: CommentProps) => {
         </View>
       )}
       <View style={{paddingTop: 8}}>
-        <Text style={{color: '#000000'}}>{comment}</Text>
+        <Text style={{color: '#000000', textAlign: 'right'}}>{comment}</Text>
       </View>
     </View>
   );

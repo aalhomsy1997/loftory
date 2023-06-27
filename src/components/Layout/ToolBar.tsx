@@ -3,11 +3,13 @@ import {View, StyleSheet, Image, Text} from 'react-native';
 import {ToolBarProps} from '../types/Layout/ToolBarProps';
 import RenderImage from '../Elements/RenderImage';
 import {BaseStyles} from '../../assets/styles/BaseStyles';
+import DeviceInfo from 'react-native-device-info';
 const Logo = require('../../assets/images/logo.png');
 const CartIcon = require('../../assets/icons/add_to_cart.png');
 const ChevronDown = require('../../assets/icons/chevron-down.png');
 
 const ToolBar = ({}: ToolBarProps) => {
+  console.log('DeviceInfo', DeviceInfo.hasNotch());
   return (
     <View style={[styles.toolBar]}>
       <Image source={Logo} />
@@ -26,7 +28,7 @@ export default ToolBar;
 
 const styles = StyleSheet.create({
   toolBar: {
-    height: 76,
+    height: !DeviceInfo.hasNotch() ? 76 : 124,
     backgroundColor: '#100F0F',
     display: 'flex',
     flexDirection: 'row',
